@@ -1,6 +1,17 @@
 import * as React from "react";
 import "./styles/css/App.css";
+import { Doughnut } from "react-chartjs-2";
 
+const data = {
+  labels: ["Red", "Green", "Yellow"],
+  datasets: [
+    {
+      data: [300, 50, 100],
+      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+      hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+    },
+  ],
+};
 class App extends React.Component {
   render() {
     return (
@@ -19,17 +30,17 @@ class App extends React.Component {
 
             <div className="row mt">
               <div className="col-sm-4">
-                <i className="mdi mdi-bookmark-outline" />
+                <i className="ion-ios-bookmarks-outline" />
                 <h3>Autor</h3>
               </div>
 
               <div className="col-sm-4">
-                <i className="mdi mdi-cube-outline" />
+                <i className="ion-ios-browsers-outline" />
                 <h3>Entwickler</h3>
               </div>
 
               <div className="col-sm-4">
-                <i className="mdi mdi-microphone-outline" />
+                <i className="ion-ios-mic-outline" />
                 <h3>Speaker</h3>
               </div>
             </div>
@@ -37,8 +48,8 @@ class App extends React.Component {
         </div>
 
         <div className="container ptb">
+          <h2 className="centered mb">Begeisterungsfähig und neugierig.</h2>
           <div className="row">
-            <h2 className="centered mb">Begeisterungsfähig und neugierig.</h2>
             <div className="col-md-6">
               <p>
                 Als IT-Architekt und Software Engineer habe ich jahrelange
@@ -60,8 +71,7 @@ class App extends React.Component {
                   target="_blank"
                 >
                   Xing{" "}
-                </a>!<br />
-                Selbst, wenn es um das{" "}
+                </a>!<br />Selbst, wenn es um das{" "}
                 <a
                   target="_blank "
                   href="https://untappd.com/w/krystofff/252582 "
@@ -74,17 +84,15 @@ class App extends React.Component {
           </div>
         </div>
         <div className="container pb">
-          <div className="row">
-            <h2 className="centered">Mein Tech-Skills Radar.</h2>
-            <div className="centered mb col-md-8 col-md-offset-2">
-              <p>Mit diesen Technologien beschäftige ich mich derzeit.</p>
-            </div>
-            <div className="col-md-3 col-md-offset-3 canvas-holder">
-              <canvas id="chart-area" />
-            </div>
-            <div className="col-md-5 col-md-offset-1" id="chart-legend" />
+          <h2 className="centered">Mein Tech-Skills Radar.</h2>
+          <div className="centered mbcol-md-offset-2">
+            <p>Mit diesen Technologien beschäftige ich mich derzeit.</p>
+          </div>
+          <div className="centered">
+            <Doughnut data={data} />
           </div>
         </div>
+
         <div id="g">
           <div className="container">
             <div className="row centered">
