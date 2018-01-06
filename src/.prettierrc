@@ -1,0 +1,11 @@
+{
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": [".prettierrc", ".nsprc"],
+      "options": {
+        "parser": "json"
+      }
+    }
+  ]
+}

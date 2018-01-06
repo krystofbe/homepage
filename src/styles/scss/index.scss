@@ -1,0 +1,10 @@
+// import the default bootstrap scss from node modules
+@import "node_modules/bootstrap/scss/bootstrap";
+
+@import "style";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
