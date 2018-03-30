@@ -14,8 +14,6 @@
 /* Import fonts */
 
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
-@import "prettyphoto";
-@import "hoverex-all";
 
 * {
   margin: 0;
@@ -402,4 +400,7 @@ input {
   color: #73b8e4;
   background-color: #fff;
   border-color: #fff;
+}
+.w-10 {
+  width: 10%;
 }

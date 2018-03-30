@@ -1,19 +1,59 @@
 import * as React from "react";
 import "./styles/css/App.css";
 import { Doughnut } from "react-chartjs-2";
+import * as chartjs from "chart.js";
+
+import * as Waypoint from "react-waypoint";
 
 const data = {
-  labels: ["Red", "Green", "Yellow"],
+  labels: [
+    "Frontend-Entwicklung (React, Angular, Typescript)",
+    "Backend-Entwicklung (Elixir/Phoenix, Java, Swift)",
+    "Infrastruktur (Docker, Kubernetes, AWS)",
+    "Mobile-Entwicklung (iOS, Swift)",
+  ],
   datasets: [
     {
-      data: [300, 50, 100],
-      backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
-      hoverBackgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"],
+      data: [50, 50, 20, 20],
+      backgroundColor: [
+        "rgb(255, 99, 132)",
+        "rgb(75, 192, 192)",
+        "rgb(255, 205, 86)",
+        "rgb(61, 163, 231)",
+      ],
+      hoverBackgroundColor: [
+        "rgb(255, 99, 132)",
+        "rgb(75, 192, 192)",
+        "rgb(255, 205, 86)",
+        "rgb(61, 163, 231)",
+      ],
     },
   ],
 };
-class App extends React.Component {
+const options: chartjs.ChartOptions = {
+  legend: {
+    position: "right",
+    fullWidth: true,
+    labels: {
+      boxWidth: 50,
+      padding: 30,
+      fontSize: 15,
+    },
+  },
+  tooltips: {
+    enabled: false,
+  },
+};
+type State = {
+  redrawChart: boolean;
+};
+class App extends React.Component<{}, State> {
+  constructor(props: {}) {
+    super(props);
+    this.state = { redrawChart: false };
+  }
   render() {
+    const { redrawChart } = this.state;
     return (
       <div className="App">
         <div id="h">
@@ -74,7 +114,7 @@ class App extends React.Component {
                 </a>!<br />Selbst, wenn es um das{" "}
                 <a
                   target="_blank "
-                  href="https://untappd.com/w/krystofff/252582 "
+                  href="https://untappd.com/w/krystofff/252582/beer"
                 >
                   Bierbrauen{" "}
                 </a>
@@ -83,186 +123,171 @@ class App extends React.Component {
             </div>
           </div>
         </div>
+
         <div className="container pb">
           <h2 className="centered">Mein Tech-Skills Radar.</h2>
-          <div className="centered mbcol-md-offset-2">
+          <div className="centered mbcol-md-offset-2 mb-5">
             <p>Mit diesen Technologien beschäftige ich mich derzeit.</p>
           </div>
+
           <div className="centered">
-            <Doughnut data={data} />
+            <Doughnut
+              height={100}
+              data={data}
+              options={options}
+              redraw={redrawChart}
+            />
           </div>
         </div>
-
+        <Waypoint
+          bottomOffset={"-200px"}
+          onEnter={() => {
+            this.setState({ redrawChart: true });
+          }}
+        />
         <div id="g">
-          <div className="container">
-            <div className="row centered">
-              <h2>Meine Projekte.</h2>
-              <div className="col-md-8 col-md-offset-2">
-                <p>
-                  Hier finden Sie einen Überblick über Artikel, Talks und
-                  Projekte der letzten Zeit.
-                </p>
-              </div>
+          <div className="container centered">
+            <h2>Meine Projekte.</h2>
+            <div className="">
+              <p>
+                Hier finden Sie eine Auswahl von Artikeln, Talks und Projekten
+                der letzten Zeit.
+              </p>
             </div>
           </div>
+          <div className="row m-5 centered">
+            <div className="col-lg-4">
+              <div className="d-flex align-items-center flex-column h-100">
+                <div>
+                  <img
+                    className="rounded mb-3"
+                    src="img/portfolio/pf_01.png"
+                    alt="Generic placeholder image"
+                    width="140"
+                    height="140"
+                  />
+                  <h3>PHP-Magazin 6/17</h3>
+                  <h4 className="text-muted">
+                    Die nächste Stufe der App-Revolution
+                  </h4>
 
-          <div className="portfolio-centered mt mr-3">
-            <div className="recentitems portfolio">
-              <div className="row">
-                <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12 p-0">
-                  <div className="portfolio-item graphic-design">
-                    <div className="he-wrap tpl6">
-                      <img
-                        src="assets/img/portfolio/pf_01.png"
-                        srcSet="assets/img/portfolio/hr_pf_01.png 2x"
-                        className="img-responsive w-100 h-100"
-                        alt=""
-                      />
-                      <div className="he-view">
-                        <div className="bg a0" data-animate="fadeIn">
-                          <h3 className="a1" data-animate="fadeInDown">
-                            "Swift − the next big thing?"
-                          </h3>
-                          <h4 className="a1" data-animate="fadeInDown">
-                            Artikel in Java Aktuell<br />Ausgabe 2/2017
-                          </h4>
-                          <a
-                            target="_blank"
-                            href="assets/pdf/Krystof-Beuermann-Swift-the-next-big-thing.pdf"
-                            className="dmbutton a2"
-                            data-animate="fadeInUp"
-                          >
-                            <i className="ion-link" />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <p className="text-justify">
+                    Im Artikel erkläre ich, was progressive Web Apps sind und
+                    wie man Sie mit React erstellt.
+                  </p>
                 </div>
-                <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12 p-0">
-                  <div className="portfolio-item graphic-design">
-                    <div className="he-wrap tpl6">
-                      <img
-                        src="assets/img/portfolio/pf_02.png"
-                        srcSet="assets/img/portfolio/hr_pf_02.png 2x"
-                        className="img-responsive w-100 h-100"
-                        alt=""
-                      />
-                      <div className="he-view">
-                        <div className="bg a0" data-animate="fadeIn">
-                          <h3 className="a1" data-animate="fadeInDown">
-                            "Full-Stack Swift"
-                          </h3>
-                          <h4 className="a1" data-animate="fadeInDown">
-                            Leitartikel im Entwickler Magazin<br />Ausgabe
-                            4/2017
-                          </h4>
-                          <a
-                            target="_blank"
-                            href="https://entwickler.de/entwickler-magazin/entwickler-magazin-4-17-579801944.html"
-                            className="dmbutton a2"
-                            data-animate="fadeInUp"
-                          >
-                            <i className="ion-link" />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+
+                <div className="mt-auto p-2">
+                  <a
+                    className="btn btn-secondary"
+                    href="https://entwickler.de/php-magazin/php-magazin-6-17-579810577.html"
+                    role="button"
+                  >
+                    Mehr dazu »
+                  </a>
                 </div>
-                <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12 p-0">
-                  <div className="portfolio-item graphic-design">
-                    <div className="he-wrap tpl6">
-                      <img
-                        src="assets/img/portfolio/pf_03.png"
-                        srcSet="assets/img/portfolio/hr_pf_03.png 2x"
-                        className="img-responsive w-100 h-100"
-                        alt=""
-                      />
-                      <div className="he-view">
-                        <div className="bg a0" data-animate="fadeIn">
-                          <h3 className="a1" data-animate="fadeInDown">
-                            iOS App Wischmopp
-                          </h3>
-                          <a
-                            target="_blank"
-                            href="https://itunes.apple.com/de/app/wischmopp/id1075304998?mt=8"
-                            className="dmbutton a2"
-                            data-animate="fadeInUp"
-                          >
-                            <i className="ion-link" />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="d-flex align-items-center flex-column h-100">
+                <div>
+                  <img
+                    className="rounded mb-3"
+                    src="img/portfolio/pf_02.png"
+                    alt="entwickler magazin"
+                    width="140"
+                    height="140"
+                  />
+                  <h3>Entwickler Magazin Spezial: JavaScript</h3>
+                  <h4 className="text-muted">PWAs mit React</h4>
+
+                  <p className="text-justify">
+                    Der Artikel beschäftigt sich intensiv mit der Erstellung von
+                    Progrssive Web Apps mit React.
+                  </p>
                 </div>
-                <div className="col-lg-3 col-md-3 col-sm-6 col-xs-12 p-0">
-                  <div className="portfolio-item graphic-design">
-                    <div className="he-wrap tpl6">
-                      <img
-                        src="assets/img/portfolio/pf_04.png"
-                        srcSet="assets/img/portfolio/hr_pf_04.png 2x"
-                        className="img-responsive w-100 h-100"
-                        alt=""
-                      />
-                      <div className="he-view">
-                        <div className="bg a0" data-animate="fadeIn">
-                          <h3 className="a1" data-animate="fadeInDown">
-                            macOS App IkonFabrikant
-                          </h3>
-                          <a
-                            target="_blank"
-                            href="https://itunes.apple.com/de/app/ikonfabrikant/id1071693767?mt=12"
-                            className="dmbutton a2"
-                            data-animate="fadeInUp"
-                          >
-                            <i className="ion-link" />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+
+                <div className="mt-auto p-2">
+                  <a
+                    className="btn btn-secondary"
+                    href="https://entwickler.de/entwickler-magazin/entwickler-magazin-spezial-vol-15-javascript-579832677.html"
+                    role="button"
+                  >
+                    Mehr dazu »
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="d-flex align-items-center flex-column h-100">
+                <div>
+                  <img
+                    className="rounded mb-3"
+                    src="img/portfolio/pf_03.png"
+                    alt="wischmopp iphone app"
+                    width="140"
+                    height="140"
+                  />
+                  <h3>Wischmopp</h3>
+                  <h4 className="text-muted">iOS Swift App</h4>
+
+                  <p className="text-justify">
+                    Wer hat schon die Zeit sich mühsam durch die iPhoto-App zu
+                    klicken, um dort mal ordentlich aufzuräumen? Wischmopp hilft
+                    dabei. Du bekommst ein zufälliges Foto angezeigt. Wische es
+                    nach rechts, wenn du es behalten möchtest. Wische nach links
+                    wenn es gelöscht werden soll.
+                  </p>
+                </div>
+
+                <div className="mt-auto p-2">
+                  <a
+                    className="btn btn-secondary"
+                    href="https://itunes.apple.com/de/app/wischmopp/id1075304998?mt=8"
+                    role="button"
+                  >
+                    Mehr dazu »
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="container mt">
-          <div className="row clients centered">
+        <div className="container my-5">
+          <div className="centered">
             <h2>Meine Brötchenzahler.</h2>
-            <div className="col-sm-2 col-sm-offset-5">
+            <div className="col">
               <a target="_blank" href="https://www.lab25.de">
-                <img src="assets/img/client1.png" alt="" />
+                <img
+                  src="/img/Lab25_logo_web.png"
+                  className="w-10 m-4"
+                  alt=""
+                />
               </a>
             </div>
           </div>
         </div>
         <div id="sep">
-          <div className="container">
-            <div className="row centered">
-              <div className="col-md-8 col-md-offset-2">
-                <h1 className="force-select-all">
-                  <span className="">Ich wohne in Münster,</span>
-                </h1>
-                <h3 className="mb">
-                  <span className="">der lebenswertesten Stadt der Welt.</span>
-                </h3>
-                <a
-                  href="mailto:krystof@gmx.biz"
-                  className="btn btn-conf btn-primary"
-                >
-                  Schreiben Sie mir!
-                </a>
-              </div>
-            </div>
+          <div className="container centered">
+            <h1 className="">
+              <span className="">Ich wohne in Münster,</span>
+            </h1>
+            <h3 className="mb">
+              <span className="">der lebenswertesten Stadt der Welt.</span>
+            </h3>
+            <a
+              href="mailto:krystof@gmx.biz"
+              className="btn btn-conf btn-primary"
+            >
+              Schreiben Sie mir!
+            </a>
           </div>
         </div>
 
         <div id="f">
           <div className="container">
             <div className="row centered">
-              <div className="col-md-8 col-md-offset-2">
+              <div className="col">
                 <b>Impressum</b>
                 <br /> Angaben gemäß § 5 TMG<br /> Krystof Beuermann,
                 Warendorfer Str. 91,48145 Münster Vertreten durch: Krystof
