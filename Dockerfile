@@ -10,11 +10,10 @@ RUN rm -rf build || true
 COPY ./package.json /usr/src/app
 COPY ./tsconfig.json /usr/src/app
 COPY ./tslint.json /usr/src/app
-
-RUN yarn install
-
 COPY ./public /usr/src/app/public
 COPY ./src /usr/src/app/src
+
+RUN yarn install
 RUN yarn build
 
 
