@@ -62,8 +62,8 @@ class App extends React.Component<{}, State> {
             <div className="row">
               <div className="col">
                 <h1>
-                  Hallo, ich bin <b>Krystof Beuerman</b>.<br />Ich entwickle
-                  Software und braue Bier.
+                  Hallo, ich bin <b>Krystof Beuerman</b>.<br />
+                  Ich entwickle Software und braue Bier.
                 </h1>
               </div>
             </div>
@@ -111,7 +111,9 @@ class App extends React.Component<{}, State> {
                   target="_blank"
                 >
                   Xing{" "}
-                </a>!<br />Selbst, wenn es um das{" "}
+                </a>
+                !<br />
+                Selbst, wenn es um das{" "}
                 <a
                   target="_blank "
                   href="https://untappd.com/w/krystofff/252582/beer"
@@ -289,12 +291,15 @@ class App extends React.Component<{}, State> {
             <div className="row centered">
               <div className="col">
                 <b>Impressum</b>
-                <br /> Angaben gemäß § 5 TMG<br /> Krystof Beuermann,
-                Warendorfer Str. 91,48145 Münster Vertreten durch: Krystof
-                Beuermann Kontakt: Telefon: 0151- 27529426 E-Mail:
-                krystof@gmx.biz<br /> Verantwortlich für den Inhalt nach § 55
-                Abs. 2 RStV: Krystof Beuermann, Warendorfer Str. 91, 48145
-                Münster<br /> Foto: Wladyslaw Sojka (www.sojka.photo)<br />
+                <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>
+                <br /> Angaben gemäß § 5 TMG
+                <br /> Krystof Beuermann, Warendorfer Str. 91,48145 Münster
+                Vertreten durch: Krystof Beuermann Kontakt: Telefon: 0151-
+                27529426 E-Mail: krystof@gmx.biz
+                <br /> Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:
+                Krystof Beuermann, Warendorfer Str. 91, 48145 Münster
+                <br /> Foto: Wladyslaw Sojka (www.sojka.photo)
+                <br />
               </div>
             </div>
           </div>

@@ -19,10 +19,8 @@
     "build": "npm-run-all build-css build-js",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "build-css":
-      "./node_modules/.bin/node-sass-chokidar src/styles/scss -o src/styles/css",
-    "watch-css":
-      "npm run build-css && ./node_modules/.bin/node-sass-chokidar src/styles/scss -o src/styles/css --watch --recursive"
+    "build-css": "./node_modules/.bin/node-sass-chokidar src/styles/scss -o src/styles/css",
+    "watch-css": "npm run build-css && ./node_modules/.bin/node-sass-chokidar src/styles/scss -o src/styles/css --watch --recursive"
   },
   "devDependencies": {
     "@types/chart.js": "^2.7.3",
