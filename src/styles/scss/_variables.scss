@@ -1,7 +1,7 @@
 // colors
 $primary: #73b8e4 !default;
 $yiq-contrasted-threshold: 200 !default;
-$card-border-color: rgba($primary, .400) !default;
+$card-border-color: rgba($primary, 0.4) !default;
 
 // Your variable overrides
 $white: #fff !default;
@@ -18,6 +18,6 @@ $black: #000 !default;
 $text-muted: $gray-500 !default;
 
 // cards
-$card-cap-bg: rgba($primary, .03) !default;
+$card-cap-bg: rgba($primary, 0.03) !default;
 
 $btn-border-radius: 10px;

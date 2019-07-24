@@ -31,10 +31,10 @@ const options: chartjs.ChartOptions = {
     enabled: false,
   },
 };
-type State = {
+interface State {
   redrawChart: boolean;
   weatherModalIsOpen: boolean;
-};
+}
 class App extends React.Component<{}, State> {
   constructor(props: {}) {
     super(props);
@@ -140,8 +140,7 @@ class App extends React.Component<{}, State> {
               <a
                 href="https://www.enterjs.de/single?id=8214&status-quo-webassembly-mit-typescript"
                 className="btn btn-primary"
-                target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 Ansehen
               </a>
@@ -264,8 +263,7 @@ class App extends React.Component<{}, State> {
                     className="btn btn-secondary"
                     href="https://www.amazon.de/JavaScript-Kompendium-Bd-Krystof-Beuermann-ebook/dp/B07MYYJX39/ref=sr_1_1?ie=UTF8&qid=1553465104&sr=8-1"
                     role="button"
-                    target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                   >
                     Mehr dazu »
                   </a>
@@ -303,8 +301,7 @@ class App extends React.Component<{}, State> {
                     className="btn btn-secondary"
                     href="https://entwickler.de/online/tools/cross-plattform-apps-579874358.html"
                     role="button"
-                    target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                   >
                     Mehr dazu »
                   </a>
@@ -343,8 +340,7 @@ class App extends React.Component<{}, State> {
                     className="btn btn-secondary"
                     href="https://entwickler.de/leseproben/globales-state-management-mit-react-und-co-579858132.html"
                     role="button"
-                    target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                   >
                     Mehr dazu »
                   </a>
@@ -380,8 +376,7 @@ class App extends React.Component<{}, State> {
                     className="btn btn-secondary"
                     href="https://entwickler.de/php-magazin/php-magazin-6-17-579810577.html"
                     role="button"
-                    target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                   >
                     Mehr dazu »
                   </a>
@@ -412,8 +407,7 @@ class App extends React.Component<{}, State> {
                     className="btn btn-secondary"
                     href="https://entwickler.de/entwickler-magazin/entwickler-magazin-spezial-vol-15-javascript-579832677.html"
                     role="button"
-                    target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                   >
                     Mehr dazu »
                   </a>
@@ -447,8 +441,7 @@ class App extends React.Component<{}, State> {
                     className="btn btn-secondary"
                     href="https://itunes.apple.com/de/app/wischmopp/id1075304998?mt=8"
                     role="button"
-                    target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                   >
                     Mehr dazu »
                   </a>
@@ -472,8 +465,7 @@ class App extends React.Component<{}, State> {
               <a
                 href="mailto:krystof@gmx.biz"
                 className="btn btn-conf btn-primary mt-4"
-                target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 Schreiben Sie mir!
               </a>
@@ -496,11 +488,7 @@ class App extends React.Component<{}, State> {
             <div className="row centered">
               <div className="col">
                 <b>Impressum</b>
-                <a
-                  target="_blank"
-                  rel="noopener"
-                  href="datenschutzerklaerung.html"
-                >
+                <a rel="noopener noreferrer" href="datenschutzerklaerung.html">
                   Datenschutzerklärung
                 </a>
                 <br /> Angaben gemäß § 5 TMG

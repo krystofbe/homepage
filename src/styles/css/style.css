@@ -13,7 +13,7 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
 * {
   margin: 0;
-  padding: 0px;
+  padding: 0;
   font-family: "Lato", sans-serif; }
 
 body {
@@ -99,8 +99,8 @@ body {
   background: #2b2e31; }
 
 *,
-*:after,
-*:before {
+*::after,
+*::before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -124,8 +124,8 @@ a:focus {
   color: #696e74; }
 
 .nopadding {
-  padding: 0px !important;
-  margin: 0px; }
+  padding: 0 !important;
+  margin: 0; }
 
 /* FORM CONFIGURATION */
 input {
@@ -169,17 +169,10 @@ input {
   background: white;
   color: #2f2f2f; }
 
-.dmbutton:hover,
-.dmbutton:active,
-.dmbutton:focus {
-  color: #ffffff;
-  background-color: #222222;
-  border-color: #ffffff; }
-
 .dmbutton {
   background: rgba(0, 0, 0, 0);
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid #fff;
+  color: #fff;
   -webkit-border-radius: 2px;
   border-radius: 2px;
   padding-top: 1.025rem;
@@ -198,8 +191,14 @@ input {
   -webkit-transition: background-color 300ms ease-out;
   -moz-transition: background-color 300ms ease-out;
   transition: background-color 300ms ease-out;
-  -webkit-appearance: none;
-  font-weight: normal !important; }
+  -webkit-appearance: none; }
+
+.dmbutton:hover,
+.dmbutton:active,
+.dmbutton:focus {
+  color: #fff;
+  background-color: #222;
+  border-color: #fff; }
 
 /* HEADER SECTION */
 @media only screen and (max-width: 479px) {
@@ -219,9 +218,6 @@ input {
   -moz-background-size: 100%;
   -o-background-size: 100%;
   background-size: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   color: white; }
 
@@ -234,6 +230,18 @@ input {
   font-weight: 900;
   color: white;
   letter-spacing: 1px; }
+
+.portfolio-item h3 {
+  margin: -10px 0 10px;
+  font-size: 16px;
+  text-transform: uppercase; }
+
+.tpl6 h3 {
+  color: #fff;
+  margin: 0;
+  padding: 40px 5px 0;
+  font-size: 22px;
+  text-transform: uppercase; }
 
 #h h3 {
   margin-top: 10px; }
@@ -252,24 +260,12 @@ input {
   margin: 0 !important;
   display: block; }
 
-.portfolio-item .title:before {
+.portfolio-item .title::before {
   border-radius: 0;
   display: none; }
 
 .portfolio-item p {
-  margin: 0px 0 30px; }
-
-.portfolio-item h3 {
-  margin: -10px 0 10px;
-  font-size: 16px;
-  text-transform: uppercase; }
-
-.tpl6 h3 {
-  color: #fff;
-  margin: 0;
-  padding: 40px 5px 0;
-  font-size: 22px;
-  text-transform: uppercase; }
+  margin: 0 0 30px; }
 
 .tpl6 h4 {
   color: #fff;
@@ -311,12 +307,7 @@ input {
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
   -o-background-size: 100%;
-  background-size: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color: white; }
+  background-size: 100%; }
 
 #sep h3 {
   font-weight: 300;
