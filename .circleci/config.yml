@@ -1,18 +1,38 @@
-version: 2.1
+defaults: &defaults
+  working_directory: /root/homepage
+  docker:
+    - image: node:10
 
-orbs:
-  react: thefrontside/react@0.1.0
+version: 2
+
+jobs:
+  checkout-and-test:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/homepage/node_modules
+      - run:
+          name: Install dependencies
+          command: yarn install
+      - run:
+          name: Lint sources
+          command: yarn eslint
+      - run:
+          name: Run unit tests
+          command: yarn test --ci --coverage --colors
+      - run:
+          name: Upload code-coverage results
+          command: yarn stylelint
+      - save_cache:
+          key: cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/homepage/node_modules
 
 workflows:
-  push:
+  version: 2
+  build:
     jobs:
-      - react/install
-      - react/eslint:
-          requires:
-            - react/install
-      - react/stylelint:
-          requires:
-            - react/install
-      - react/test:
-          requires:
-            - react/install
+      - checkout-and-test

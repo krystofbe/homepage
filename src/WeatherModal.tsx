@@ -13,8 +13,10 @@ const customStyles = {
 };
 
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement("#root");
-
+// @eslint-disable-line
+if (process.env.NODE_ENV !== "test") {
+  Modal.setAppElement("#root");
+}
 interface Props {
   modalIsOpen: boolean;
 }
